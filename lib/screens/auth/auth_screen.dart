@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cryptkey_manager_app/screens/auth/login_screen.dart';
+import 'package:cryptkey_manager_app/screens/auth/register_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -32,20 +33,27 @@ class AuthScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text('Login'),
+              child: const Text('Log in'),
             ),
 
             const SizedBox(height: 20),
 
             OutlinedButton(
-              onPressed: () => print("Hello!"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterScreen(),
+                  ),
+                );
+              },
               style: FilledButton.styleFrom(
                 minimumSize: const Size(300, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text('Register'),
+              child: const Text('Sign up'),
             ),
           ],
         ),

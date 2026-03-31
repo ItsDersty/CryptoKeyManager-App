@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cryptkey_manager_app/widgets/iconbtn_menu.dart';
-import 'auth/auth_screen.dart';
+import '../auth/auth_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -22,7 +22,6 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      // Основной контент
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
