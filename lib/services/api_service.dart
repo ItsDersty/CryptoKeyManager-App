@@ -86,6 +86,19 @@ class ApiService {
     return null;
   }
 
+  Future<List<dynamic>?> getData() async {
+    try {
+      final response = await _dio.get('/api/v1/vault/get-entries', data: {});
+
+      if (response.statusCode == 200) {
+        return response.data;
+      }
+    } on DioException catch (e) {
+      print("Error while try to get data: ${e.message}");
+    }
+    return null;
+  }
+
   Future<Map<String, dynamic>?> refreshToken(String token) async {
     try {
       final response = await _refreshDio.post(
@@ -100,7 +113,7 @@ class ApiService {
       //catch (e) {
       signOut();
 
-      print("session is outdated, returning to welcome screen");
+      print("session is outdated, code should return to welcome screen");
     }
     return null;
   }

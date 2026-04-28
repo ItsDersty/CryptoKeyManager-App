@@ -95,8 +95,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
 
                     validator: (value) {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) {
                         return 'Please enter username';
+                      }
                       //if (!value.contains('@')) return 'Enter a valid email';
                       return null;
                     },
@@ -119,8 +120,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       prefixIcon: Icon(Icons.password_rounded),
                     ),
                     validator: (value) {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) {
                         return 'Please enter password';
+                      }
                       //if (value.length < 6) return 'Password too short';
                       return null;
                     },

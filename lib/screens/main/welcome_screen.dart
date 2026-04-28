@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cryptkey_manager_app/widgets/iconbtn_menu.dart';
+//import 'package:cryptkey_manager_app/widgets/iconbtn_menu.dart';
 import '../auth/auth_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -10,14 +10,19 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('CryptKey Manager'),
+
         actions: [
-          IconbtnMenu(
-            icon: const Icon(Icons.more_horiz),
-            items: [
-              MenuItemButton(
-                leadingIcon: const Icon(Icons.settings),
-                child: const Text("Settings"),
+          PopupMenuButton<String>(
+            onSelected: (String result) {
+              print('choosen: $result');
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              const PopupMenuItem<String>(
+                value: 'Settings',
+                child: Text('Settings'),
               ),
+              const PopupMenuItem<String>(value: 'About', child: Text('About')),
+              const PopupMenuItem<String>(value: 'Logout', child: Text('Exit')),
             ],
           ),
         ],
